@@ -1,0 +1,62 @@
+{
+  "name": "@octavo/docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "prebuild": "node scripts/code-generate",
+    "lint": "tslint src/**/*.ts",
+    "test": "mocha --opts ./mocha.opts",
+    "test:watch": "mocha --opts ./mocha.opts --watch",
+    "test-ci": "nyc mocha --opts ./mocha.opts",
+    "commitmsg": "conventional-changelog-lint -e",
+    "prepublish": "in-publish && (npm run lint && npm run prebuild && npm run build && npm run test) || not-in-publish",
+    "prepush": "npm run prepublish",
+    "precommit": "npm run lint"
+  },
+  "keywords": [
+    "octavo"
+  ],
+  "author": {
+    "name": "Aleksandr Krivoshchekov",
+    "email": "SuperPaintmanDeveloper@gmail.com",
+    "url": "https://superpaintman.com/"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/",
+    "!src/",
+    "!scripts/"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "5.2.5",
+    "@commitlint/config-conventional": "5.2.3",
+    "@types/chai": "4.0.8",
+    "@types/chai-as-promised": "7.1.0",
+    "@types/lodash": "4.14.88",
+    "@types/mocha": "2.2.44",
+    "@types/node": "8.0.57",
+    "chai": "4.1.2",
+    "chai-as-promised": "7.1.1",
+    "husky": "0.14.3",
+    "in-publish": "2.0.0",
+    "mocha": "4.0.1",
+    "nyc": "11.4.1",
+    "source-map-support": "0.5.0",
+    "tslint": "5.8.0",
+    "tslint-eslint-rules": "4.1.1",
+    "typescript": "2.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octavoframework/docs.git"
+  }
+}

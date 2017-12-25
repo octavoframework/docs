@@ -1,0 +1,15 @@
+# Git
+/.git/
+
+# NPM
+/node_modules/
+
+# Lib
+/lib/
+
+# Logs
+/*.log
+
+# Coverage
+/.nyc_output
+/coverage
